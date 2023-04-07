@@ -1,0 +1,38 @@
+{% extends "extends/header.html" %}
+
+{% block content %}
+
+	{% load static %}
+    <script src="{% static 'js/login.js' %}"></script>
+
+	<h2><i>Login</i></h2>
+
+	<form method='POST' autocomplete='off' id='login'>
+		{% csrf_token %}
+        {{ login_form.non_field_errors }}
+
+        <div class='fieldWrapper'>
+            {{ login_form.username.errors }}
+            {{ login_form.username }}
+            <span class='bar'></span>
+            <label for='{{ login_form.username.id_for_label }}'><i>Username</i></label>
+        </div>
+
+        <div class='fieldWrapper'>
+            {{ login_form.password.errors }}
+            {{ login_form.password }}
+            <span class='bar'></span>
+            <label for='{{ login_form.password.id_for_label }}'><i>Password</i></label>
+        </div>
+
+		<div class='buttonWrapper'>
+            <div class='button'>Login</div>
+            <div class='border top'></div>
+            <div class='border left'></div>
+            <div class='border right'></div>
+            <div class='border bottom-left'></div>
+            <div class='border bottom-right'></div>
+        </div>
+	</form>
+
+{% endblock %}

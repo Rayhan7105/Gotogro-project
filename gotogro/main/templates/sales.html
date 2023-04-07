@@ -1,0 +1,88 @@
+{% extends "extends/header.html" %}
+
+{% block content %}
+
+	{% load static %}
+    <script src="{% static 'js/sale.js' %}"></script>
+
+	<h2><em>Sales</em></h2>
+
+	<form method='POST' autocomplete='off'>
+		{% csrf_token %}
+        {{ sale_form.non_field_errors }}
+
+        {{ sale_form.member }}
+        {{ sale_form.item }}
+
+        <div class='fieldWrapper input-field'>
+            <input type='text' id='autocomplete-member' class='autocomplete'>
+            <span class='bar'></span>
+            <label for='autocomplete-member' data-default-value='Member'><i>Member</i></label>
+        </div>
+
+        <div class='fieldWrapper input-field'>
+            <input type='text' id='autocomplete-item' class='autocomplete'>
+            <span class='bar'></span>
+            <label for='autocomplete-item' data-default-value='Items'><i>Items</i></label>
+        </div>
+
+        <div id='item-chip' class='chipContainer'></div>
+
+		<div id="addData" class="buttonWrapper">
+            <div class='button'>Add</div>
+            <div class='border top'></div>
+            <div class='border left'></div>
+            <div class='border right'></div>
+            <div class='border bottom-left'></div>
+            <div class='border bottom-right'></div>
+        </div>
+   
+        <div class='buttonWrapper'>
+            <div class='button'>Edit</div>
+            <div class='border top'></div>
+            <div class='border left'></div>
+            <div class='border right'></div>
+            <div class='border bottom-left'></div>
+            <div class='border bottom-right'></div>
+        </div>
+    
+        <div class='buttonWrapper'>
+            <div class='button'>Delete</div>
+            <div class='border top'></div>
+            <div class='border left'></div>
+            <div class='border right'></div>
+            <div class='border bottom-left'></div>
+            <div class='border bottom-right'></div>
+        </div>
+
+        <div id='export' class="buttonWrapper">
+            <div class='button'>Export</div>
+            <div class='border top'></div>
+            <div class='border left'></div>
+            <div class='border right'></div>
+            <div class='border bottom-left'></div>
+            <div class='border bottom-right'></div>
+        </div>
+ 
+	</form>
+
+    <div id="collapsible">
+        <div class='col s6'>
+            <div class='card-panel'>
+                <span class='white-text'>
+                    <h5>Current Sales</h5>
+                </span>
+            </div>
+        </div>
+        {% if sales %}
+            <ul class="collapsible">
+            {% for s in sales %}
+                <li class='result'>
+                    <div class="collapsible-header"><font>{{ s.member }} - ${{ s.total }}</font></div>
+                </li>
+            {% endfor %} 
+            </ul>
+        {% endif %}
+    </div>
+
+{% endblock %}

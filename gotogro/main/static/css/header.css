@@ -1,0 +1,283 @@
+/* General */
+nav {
+    background-color: #bbe1fa;
+}
+nav ul a {
+    color: #1b262c;
+    padding: 0px 35px;
+}
+body {
+    background-color: #1b262c;
+}
+h2 {
+    text-align: center;
+    color: #ffffff;
+    margin: 20px 0px 0px 0px;
+}
+h5 {
+    margin: 10px;
+}
+font {
+    text-align: center;
+    width: 100%;
+    color: #ffffff;
+}
+nav .brand-logo {
+    color: #1b262c;
+}
+.dropdown-content li > a {
+    color: #1b262c;
+}
+.card-panel {
+    background-color: #3282b8;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 3rem 0rem 0.5rem 0rem;
+    text-align: center;
+}
+.collapsible {
+    border: none;
+    margin-top: 25px;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+.collapsible-header {
+    border: none;
+    background-color: #0f4c75;
+    border-radius: 10px;
+    color: #ffffff;
+    transition: 1s;
+}
+li.active .collapsible-header.collapsible-dropdown {
+    border-radius: 10px 10px 0px 0px;
+    border-bottom: 2px solid #bbe1fa;
+}
+.keyboard-focused .collapsible-header.collapsible-dropdown:focus {
+    background-color: #0f4c75;
+}
+.collapsible-body {
+    border: none;
+    background-color: #0f4c75;
+    border-radius: 0px 0px 10px 10px;
+    text-align: center;
+}
+.result {
+    margin-bottom: 12px;
+}
+.heading {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%; 
+}
+.autocomplete-content li .highlight {
+    color: #3282b8;
+}
+.chipContainer {
+    position: absolute;
+}
+.chip {
+    background-color: #3282b8;
+    color: #ffffff;
+}
+.input-field {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+/* Form formatting */
+.fieldWrapper { 
+    position:relative;
+}
+form {
+    padding-top: 5px;
+}
+.fieldWrapper > input {
+    padding: 30px 0px 0px 0px !important;
+    display: block;
+    color: #bbe1fa !important;
+}
+.autocomplete-content li .highlight {
+    color: #3282b8;
+}
+.fieldWrapper .dropdown-content li > a,
+.fieldWrapper .dropdown-content li > span {
+    color: #a19f9f !important;
+}
+
+/* Field animations */
+.input-field > label, label {
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 45px;
+    font-size: 0.8rem;
+    transition: 0.5s ease all; 
+    -moz-transition: 0.5s ease all; 
+    -webkit-transition: 0.5s ease all;
+    transform: none;
+    -webkit-transform: none;
+}
+.input-field>label:not(.label-icon).active {
+    transform: none;
+    -webkit-transform: none;
+}
+input:focus ~ label, input.populated ~ label, input:read-only ~ label {
+    top: 10px;
+    font-size: 14px;
+    color :#ffffff;
+}
+input:read-only:hover {
+    cursor: pointer;
+}
+input:focus {
+    border-bottom: none !important;
+    box-shadow: none !important;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.bar 	{ 
+    display: block; 
+    width: 300px;
+}
+.bar:before, .bar:after 	{
+    content: "";
+    height: 2px; 
+    width: 0;
+    bottom: 1px; 
+    position: absolute;
+    background: #ffffff; 
+    transition: 0.5s ease all; 
+    -moz-transition: 0.5s ease all; 
+    -webkit-transition: 0.5s ease all;
+}
+.bar:before {
+    left: 50%;
+}
+.bar:after {
+    right: 50%; 
+}
+input:focus ~ .bar:before, input:focus ~ .bar:after {
+    width: 50%;
+}
+@-webkit-keyframes inputHighlighter {
+    from { background:#5264AE; }
+to 	{ width:0; background:transparent; }
+}
+@-moz-keyframes inputHighlighter {
+    from { background:#5264AE; }
+to 	{ width:0; background:transparent; }
+}
+@keyframes inputHighlighter {
+    from { background:#5264AE; }
+to 	{ width:0; background:transparent; }
+}
+
+/* Button animations */
+.buttonWrapper {
+    position: relative;
+    width: 320px;
+    height: 60px;
+    top: 50%;
+    margin: 50px auto 0px;
+}
+.buttonWrapper .button {
+    width: 320px;
+    height: 60px;
+    color: #3282b8;
+    font-size: 20px;
+    font-weight: 100;
+    line-height: 56px;
+    letter-spacing: 8px;
+    text-align: center;
+    text-transform: uppercase;
+    border: 1px solid #3282b8;
+    transition: 1s; 
+}
+.buttonWrapper:hover .button {
+    cursor: pointer;
+    color: #ffffff;
+    text-shadow:
+    -0.5px -0.5px 0 #ffffff,
+    0.5px -0.5px 0 #ffffff,
+    -0.5px 0.5px 0 #ffffff,
+    0.5px 0.5px 0 #ffffff;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s;
+}
+.buttonWrapper .border {
+    background: #ffffff;
+}
+.buttonWrapper .top {
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    margin: auto;
+    opacity: 0;
+    transition: all 0.2s linear 0.3s;
+}
+.buttonWrapper:hover .top {
+    left: 0;
+    width: 100%;
+    opacity: 1;
+    transition: all 0.2s linear;
+}
+.buttonWrapper .right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 2px;
+    height: 0;
+    margin: auto;
+    transition: all 0.1s linear 0.2s;
+}
+.buttonWrapper .left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 0;
+    margin: auto;
+    transition: all 0.1s linear 0.2s;
+}
+.buttonWrapper:hover .right,
+.buttonWrapper:hover .left {
+    transition: all 0.1s linear 0.2s;
+    height: 100%;
+}
+.buttonWrapper .bottom-left {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    margin: auto;
+    transition: all 0.2s linear;
+}
+.buttonWrapper .bottom-right {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    height: 2px;
+    margin: auto;
+    transition: all 0.2s linear;
+}
+.buttonWrapper:hover .bottom-left,
+.buttonWrapper:hover .bottom-right {
+    transition: all 0.2s linear 0.3s;
+    width: 100%;
+}
+
+#item {
+    color: white;
+    text-align: center;
+}

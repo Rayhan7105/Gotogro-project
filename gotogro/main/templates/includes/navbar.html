@@ -1,0 +1,30 @@
+<nav>
+	<div>
+		<a href='/' class='brand-logo' style='position: relative; left: 15px;'>GotoGro MRM</a>
+
+		<ul id='nav-mobile' class='right hide-on-med-and-down'>
+			<li>
+				<a href='/members'>Members</a>
+			</li>
+			<li>
+				<a href='/items'>Items</a>
+			</li>
+			<li>
+				<a href='/sales'>Sales</a>
+			</li>
+			{% if user.is_authenticated %}
+			<li>
+				<a class='dropdown-trigger' data-target='user-dropdown' href='#!'>Logged in as {{user.username}}</a>
+				<ul id='user-dropdown' class='dropdown-content'>
+					<li><a href='/admin'>Admin</a></li>
+					<li><a href='/user-logout'>Logout</a></li>
+				</ul>
+			</li>
+			{% else %}
+			<li>
+				<a href='/user-login'>Login</a>
+			</li>
+			{% endif %}
+		</ul>
+	</div>
+</nav>

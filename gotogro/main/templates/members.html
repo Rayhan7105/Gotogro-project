@@ -1,0 +1,109 @@
+{% extends "extends/header.html" %}
+
+{% block content %}
+
+	{% load static %}
+    <script src="{% static 'js/member.js' %}"></script>
+
+	<h2><em>Members</em></h2>
+
+	<form method='POST' autocomplete='off'>
+		{% csrf_token %}
+        {{ member_form.non_field_errors }}
+
+        <div class='fieldWrapper'>
+            {{ member_form.first_name.errors }}
+            {{ member_form.first_name }}
+            <span class='bar'></span>
+            <label for='{{ member_form.first_name.id_for_label }}'><i>First name</i></label>
+        </div>
+
+        <div class='fieldWrapper'>
+            {{ member_form.last_name.errors }}
+            {{ member_form.last_name }}
+            <span class='bar'></span>
+            <label for='{{ member_form.last_name.id_for_label }}'><i>Last name</i></label>
+        </div>
+
+        <div class='fieldWrapper'>
+            {{ member_form.email.errors }}
+            {{ member_form.email }}
+            <span class='bar'></span>
+            <label for='{{ member_form.email.id_for_label }}'><i>Email</i></label>
+        </div>
+
+        <div class='fieldWrapper'>
+            {{ member_form.postcode.errors }}
+            {{ member_form.postcode }}
+            <span class='bar'></span>
+            <label for='{{ member_form.postcode.id_for_label }}'><i>Postcode</i></label>
+        </div>
+
+		<div class='buttonWrapper'>
+            <div class='button'>Add</div>
+            <div class='border top'></div>
+            <div class='border left'></div>
+            <div class='border right'></div>
+            <div class='border bottom-left'></div>
+            <div class='border bottom-right'></div>
+        </div>
+
+         <div class='buttonWrapper'>
+            <div class='button'>Edit</div>
+            <div class='border top'></div>
+            <div class='border left'></div>
+            <div class='border right'></div>
+            <div class='border bottom-left'></div>
+            <div class='border bottom-right'></div>
+        </div>
+    
+        <div class='buttonWrapper'>
+            <div class='button'>Delete</div>
+            <div class='border top'></div>
+            <div class='border left'></div>
+            <div class='border right'></div>
+            <div class='border bottom-left'></div>
+            <div class='border bottom-right'></div>
+        </div>
+
+
+    <div id='export', class="buttonWrapper">
+        <div class='button'>Export</div>
+        <div class='border top'></div>
+        <div class='border left'></div>
+        <div class='border right'></div>
+        <div class='border bottom-left'></div>
+        <div class='border bottom-right'></div>
+    </div>
+        
+	</form>
+
+   
+
+    <div id="collapsible">
+        <div class='col s6'>
+            <div class='card-panel'>
+                <span class='white-text'>
+                    <h5>Current Members</h5>
+                </span>
+            </div>
+        </div>
+        {% if members %}
+            <ul class="collapsible">
+            {% for m in members %}
+                <li class='result'>
+                    <div class="collapsible-header collapsible-dropdown"><font>{{ m.first_name }} {{ m.last_name }}</font></div>
+                    <div class="collapsible-body">
+                        {% for key, value in sales.items %}
+                            {% if key.id == m.id %}
+                                <span id="item" >{{ value }}</span>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </li>
+            {% endfor %} 
+            </ul>
+        {% endif %}
+    </div>
+
+{% endblock %}
